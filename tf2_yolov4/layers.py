@@ -41,6 +41,6 @@ def conv_bn(
     if activation == "leaky_relu":
         x = tf.keras.layers.LeakyReLU(alpha=0.1)(x)
     elif activation == "mish":
-        x = tfa.activations.mish(x)
+        x = tf.keras.layers.Lambda(tfa.activations.mish)(x)
 
     return x
